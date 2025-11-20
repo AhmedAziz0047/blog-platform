@@ -1,0 +1,31 @@
+<div class="container fade-in">
+    <div class="auth-wrapper">
+        <div class="card auth-card">
+            <h2 class="text-center mb-4">Bienvenue</h2>
+
+            <div *ngIf="error" class="alert alert-error">
+                {{ error }}
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="input-group">
+                    <label class="input-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="vous@exemple.com">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Mot de passe</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Se connecter
+                </button>
+            </form>
+
+            <p class="text-center mt-4 text-muted">
+                Pas de compte ? <a routerLink="/register">S'inscrire</a>
+            </p>
+        </div>
+    </div>
+</div>

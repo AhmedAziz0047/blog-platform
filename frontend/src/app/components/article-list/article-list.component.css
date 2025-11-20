@@ -1,0 +1,342 @@
+.feed-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    /* Space for fixed footer */
+}
+
+.feed-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+}
+
+.feed-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Feed Card */
+.feed-card {
+    background: var(--surface-color);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+.card-header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.post-date {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.article-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.article-text {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+}
+
+.article-image {
+    margin: 1rem -1.5rem;
+}
+
+.article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tag {
+    background: var(--bg-secondary);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Comments Section */
+.comments-section {
+    background: var(--bg-secondary);
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.comment-item {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comment-item:last-child {
+    border-bottom: none;
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.comment-text {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.delete-comment-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 0.5rem;
+}
+
+.delete-comment-btn:hover {
+    color: var(--error-color);
+}
+
+/* Fused Comment Input */
+.comment-input-wrapper {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 0.25rem 0.5rem 0.25rem 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.comment-input-wrapper:focus-within {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.1);
+}
+
+.comment-input-field {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.post-btn-inside {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.post-btn-inside:hover {
+    transform: scale(1.05);
+    background-color: var(--primary-dark);
+}
+
+.post-btn-inside:active {
+    transform: scale(0.95);
+}
+
+/* Collapsed footer container */
+.fixed-footer {
+    position: fixed;
+    bottom: -430px;
+    /* hide everything except header */
+    left: 50%;
+    /* center horizontally */
+    transform: translateX(-50%);
+    /* compensate width */
+
+    right: auto;
+    /* remove right: 0 because it breaks centering */
+
+    background: var(--surface-color);
+    padding: 1rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-top: 1px solid var(--border-color);
+    border-radius: 50px 50px 0 0;
+    transition: bottom 0.3s ease;
+
+    max-width: 60%;
+    /* your chosen width */
+    width: 100%;
+    /* allow proper centering */
+    text-align: center;
+}
+
+/* When hover → show full form */
+.fixed-footer:hover {
+    bottom: 0;
+}
+
+.fixed-footer.visible {
+    bottom: 0 !important;
+}
+
+/* The little title visible always */
+.footer-header {
+    color: white;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px 6px 0 0;
+    width: fit-content;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* Form layout */
+.footer-form {
+    max-width: 800px;
+    margin: 1rem auto 0 auto;
+    /* space below header */
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-input {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 25px;
+    color: var(--text-primary);
+}
+
+.title-input {
+    width: 200px;
+}
+
+.content-input {
+    flex: 1;
+}
+
+.send-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .title-input {
+        width: 100%;
+    }
+
+    .feed-container {
+        padding-bottom: 180px;
+    }
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-icon:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: var(--error-color);
+}
+
+.card-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}

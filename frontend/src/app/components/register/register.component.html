@@ -1,0 +1,46 @@
+<div class="container fade-in">
+    <div class="auth-wrapper">
+        <div class="card auth-card">
+            <h2 class="text-center mb-4">Create Account</h2>
+
+            <div *ngIf="error" class="alert alert-error">
+                {{ error }}
+            </div>
+
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="input-group">
+                    <label class="input-label">Username</label>
+                    <input type="text" class="form-control" formControlName="username" placeholder="alain123">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Email Address</label>
+                    <input type="email" class="form-control" formControlName="email" placeholder="vous@exemple.com">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Password</label>
+                    <input type="password" class="form-control" formControlName="password" placeholder="••••••••">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label">Role (demo purpose)</label>
+                    <select class="form-control" formControlName="role">
+                        <option value="reader">Reader</option>
+                        <option value="writer">Writer</option>
+                        <option value="editor">Editor</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">
+                    Sign Up
+                </button>
+            </form>
+
+            <p class="text-center mt-4 text-muted">
+                Deja un compte ? <a routerLink="/login">Se connecter</a>
+            </p>
+        </div>
+    </div>
+</div>

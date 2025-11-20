@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="container nav-content">
+    <a routerLink="/" class="logo">MEAN Blog</a>
+
+    <div class="nav-links">
+      <ng-container *ngIf="user$ | async as user; else guestLinks">
+        <span class="user-info">Bonjour, {{ user.username }}</span>
+        <button (click)="logout()" class="btn btn-outline btn-sm">Se déconnecter</button>
+      </ng-container>
+
+      <ng-template #guestLinks>
+        <a routerLink="/login" class="nav-item">Connexion</a>
+        <a routerLink="/register" class="btn btn-primary btn-sm">S'inscrire</a>
+      </ng-template>
+    </div>
+  </div>
+</nav>
